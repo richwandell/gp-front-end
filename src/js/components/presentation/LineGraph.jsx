@@ -2,11 +2,15 @@ import React from "react";
 import Plot from 'react-plotly.js';
 
 export default function LineGraph(props) {
-    let x = props.dataPoints[0],
+    const x = props.dataPoints[0],
         y = props.dataPoints[1];
+    let together = x.map((item, i) => [item, y[i]]);
+    together.sort((a, b) => a[0] - b[0]);
+
+    const plotStyle = {width: "50%", display: "inline-block"}
     return ([
         <Plot key={"linegraph-1"}
-            style={{width: "100%"}}
+            style={plotStyle}
               layout={{title: 'Line Graph<br>Separate axis'}}
               data={[
                   {
@@ -21,12 +25,22 @@ export default function LineGraph(props) {
                   }
               ]} />,
         <Plot key={"linegraph-2"}
-              style={{width: "100%"}}
-              layout={{title: 'Line Graph<br>X&Y line'}}
+              style={plotStyle}
+              layout={{title: 'Line Graph<br>X&Y together'}}
               data={[
                   {
                       x: x,
                       y: y,
+                      type: 'scatter'
+                  }
+              ]} />,
+        <Plot key={"linegraph-3"}
+              style={plotStyle}
+              layout={{title: 'Line Graph<br>X&Y together sorted by X'}}
+              data={[
+                  {
+                      x: together.map((item) => item[0]),
+                      y: together.map((item) => item[1]),
                       type: 'scatter'
                   }
               ]} />

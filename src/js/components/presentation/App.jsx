@@ -21,7 +21,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <button onClick={(event) => this.buttonClicked(event)} >
+                <button style={{display: "block"}} onClick={(event) => this.buttonClicked(event)} >
                     Generate 100 Random Numbers
                 </button>
                 {this.props.dataPoints.length > 0 ?

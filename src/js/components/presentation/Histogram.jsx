@@ -4,10 +4,11 @@ import Plot from 'react-plotly.js';
 export default function Histogram(props) {
     let x = props.dataPoints[0],
         y = props.dataPoints[1];
+    const plotStyle = {width: "50%", display: "inline-block"};
     return ([
         <Plot
             key={"histogram-1"}
-            style={{width: "100%"}}
+            style={plotStyle}
             layout={{title: '2d Histogram with color scale'}}
             data={[
                 {
@@ -30,8 +31,8 @@ export default function Histogram(props) {
                 }]} />,
         <Plot
             key={"histogram-2"}
-            style={{width: "100%"}}
-            layout={{title: 'Histogram with color scale'}}
+            style={plotStyle}
+            layout={{title: 'Histogram Side by Side'}}
             data={[
                 {
                     autosize: true,
@@ -55,6 +56,45 @@ export default function Histogram(props) {
                     },
                     type: 'histogram',
                     name: 'Y Values'
+                }]} />,
+        <Plot
+            key={"histogram-3"}
+            style={plotStyle}
+            layout={{
+                title: 'Histogram Overlay',
+                barmode: "overlay"
+            }}
+            data={[
+                {
+                    autosize: true,
+                    x: x,
+                    autobinx: false,
+                    xbins: {
+                        start: 0,
+                        end: 1,
+                        size: 0.1
+                    },
+                    type: 'histogram',
+                    name: 'X Values',
+                    opacity: 0.5,
+                    marker: {
+                        color: 'green',
+                    }
+                }, {
+                    autosize: true,
+                    x: y,
+                    autobinx: false,
+                    xbins: {
+                        start: 0,
+                        end: 1,
+                        size: 0.1
+                    },
+                    type: 'histogram',
+                    name: 'Y Values',
+                    opacity: 0.5,
+                    marker: {
+                        color: 'red',
+                    }
                 }]} />
     ]);
 };
