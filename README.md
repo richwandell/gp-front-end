@@ -3,7 +3,7 @@ This app consists of two files compiled using webpack into a folder `dist`.
 1. App.js
 2. index.html
 
-View this app on github pages [here]. 
+View this app on github pages https://richwandell.github.io/gp-front-end/dist/. 
 
 ## Running the App
 ### Using node
