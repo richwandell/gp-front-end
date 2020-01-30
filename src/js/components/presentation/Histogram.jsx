@@ -95,6 +95,46 @@ export default function Histogram(props) {
                     marker: {
                         color: 'red',
                     }
+                }]} />,
+        <Plot
+            key={"histogram-4"}
+            style={plotStyle}
+            layout={{title: 'X Histogram'}}
+            data={[
+                {
+                    autosize: true,
+                    x: x,
+                    autobinx: false,
+                    xbins: {
+                        start: 0,
+                        end: 1,
+                        size: 0.1
+                    },
+                    type: 'histogram',
+                    name: 'X Values',
+                    marker: {
+                        color: 'green',
+                    }
+                }]} />,
+        <Plot
+            key={"histogram-5"}
+            style={plotStyle}
+            layout={{title: 'Y Histogram'}}
+            data={[
+                {
+                    autosize: true,
+                    x: y,
+                    autobinx: false,
+                    xbins: {
+                        start: 0,
+                        end: 1,
+                        size: 0.1
+                    },
+                    type: 'histogram',
+                    name: 'Y Values',
+                    marker: {
+                        color: 'red',
+                    }
                 }]} />
     ]);
 };
