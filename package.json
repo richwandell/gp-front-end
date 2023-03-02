@@ -16,7 +16,7 @@
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.10.1",
     "webpack-merge": "^4.2.2",
-    "plotly.js": "^1.52.1",
+    "plotly.js": "^1.58.5",
     "react-plotly.js": "^2.4.0"
   },
   "scripts": {
